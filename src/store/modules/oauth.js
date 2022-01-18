@@ -19,6 +19,7 @@ export default {
       //  2 - Success: save the token in 'accessToken'.
       //  3 - Fail: clean 'accessToken', show log error
 
+      commit('loading/SET_LOADING', true, { root: true })
       // Step 1
       oauth.getToken()
         .then(({ data }) => {
@@ -32,6 +33,7 @@ export default {
         })
         .finally(() => {
           console.log('Done!')
+          commit('loading/SET_LOADING', false, { root: true })
         })
     }
   }
