@@ -15,3 +15,10 @@
   color #2c3e50
   margin-top 60px
 </style>
+<script language="JavaScript">
+export default {
+  created () {
+    this.$store.dispatch('oauth/getToken', null, { root: true })
+  }
+}
+</script>
