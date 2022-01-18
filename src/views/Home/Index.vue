@@ -3,9 +3,9 @@
     <img alt="Vue logo" src="@/assets/logo.png">
     <HelloWorld msg="Welcome to Your Vue.js App"/>
   </div>
-<!--   <div class="hello">
+  <div class="hello">
     <b-button>Just a Button!</b-button>
-  </div> -->
+  </div>
 </template>
 
 <script>
