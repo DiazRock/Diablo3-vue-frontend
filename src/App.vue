@@ -1,11 +1,36 @@
 <template>
   <div id="app">
+
     <LoadLayout v-if="isLoading">
       <BaseLoading/>
     </LoadLayout>
+
     <MainLayout v-else/>
+
   </div>
 </template>
+
+<script>
+import { mapState } from 'vuex'
+
+import LoadLayout from './layouts/LoadLayout'
+import MainLayout from './layouts/MainLayout'
+import BaseLoading from '@/components/BaseLoading.vue'
+
+export default {
+  name: 'App',
+  components: {
+    MainLayout,
+    LoadLayout,
+    BaseLoading
+  },
+  computed: {
+    ...mapState('loading', {
+      isLoading: 'isLoading'
+    })
+  }
+}
+</script>
 
 <style lang="stylus">
   #app
@@ -16,31 +41,3 @@
     color #ffffff
     background-color #15202b
 </style>
-<script>
-import { mapState } from 'vuex'
-import LoadLayout from './layout/LoadLayout'
-import MainLayout from './layout/MainLayout'
-import BaseLoading from '@/components/BaseLoading.vue'
-
-export default {
-  created () {
-    console.log('In the created')
-    this.$store.dispatch('oauth/getToken', null, { root: true })
-  },
-  name: 'App',
-  components: {
-    MainLayout,
-    LoadLayout,
-    BaseLoading
-  },
-  beforeMount () {
-    console.log('isLoading ', this.isLoading)
-  },
-  computed: {
-    // Uso: mapState(moduleName, { state })
-    ...mapState('loading', {
-      isLoading: 'isLoading'
-    })
-  }
-}
-</script>
