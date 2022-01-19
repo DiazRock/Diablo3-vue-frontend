@@ -16,6 +16,11 @@
 
 export default {
   name: 'HeaderBar',
+  data () {
+    return {
+      title: process.env.VUE_APP_TITLE
+    }
+  },
   created () {
     console.log('In the Header Bar')
   }

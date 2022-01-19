@@ -4,8 +4,8 @@
 import { post } from 'axios'
 
 // 🔥 This data is private
-const clientId = 'e0fbdd7d84a34b89805b034115f75be0'
-const clientSecret = '6Y5faZmBRnNURyOsHsBKuHSDIFOERuNX'
+const clientId = process.env.VUE_APP_CLIENT_ID
+const clientSecret = process.env.VUE_APP_CLIENT_SECRET
 
 // API URL for oauth
 const region = 'eu'
